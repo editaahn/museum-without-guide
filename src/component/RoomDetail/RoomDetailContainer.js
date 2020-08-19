@@ -14,9 +14,9 @@ const RoomDetailContainer = ({
 
   useEffect(() => {
     roomID ? getArtworkList(roomID) : changeRoomID(roomIDparam * 1);
-  }, [roomID, roomIDparam, changeRoomID, getArtworkList, artworkList]);
+  }, [roomID, roomIDparam, changeRoomID, getArtworkList]);
 
-  return <RoomDetailPage artworkList={artworkList} roomID={roomID} getArtworkList={getArtworkList} />;
+  return <RoomDetailPage artworkList={artworkList} />;
 };
 
 export default connect(
