@@ -52,7 +52,7 @@ const roomDetail = handleActions(
       loading: {
         GET_ARTWORK_LIST: false,
       },
-      artworks: action.payload,
+      artworkList: action.payload,
     }),
     [GET_ARTWORK_LIST_FAILURE]: (state) => ({
       ...state,

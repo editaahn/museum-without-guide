@@ -81,6 +81,17 @@ header > span {
   font-weight: bold;
 }
 
+.square-colored-btn {
+  border: 0;
+  background: rgb(68, 16, 190);
+  color: #ffffff;
+  line-height: 1.2rem;
+  padding: 0.2rem;
+  width: 5rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .museum_detail__main__floor {
   padding: 1rem 0;
   display: flex;
@@ -126,15 +137,8 @@ header > span {
   padding: 0.5rem 0;
   font-size: 0.8rem;
   font-weight: bold;
-  color: rgb(206, 0, 144);
+  color: rgb(68, 16, 190);
 }
 .artwork__main__li__info__add-btn{
-  border: 0;
-  background: rgb(206, 0, 144);
-  color: #ffffff;
-  line-height: 1.2rem;
-  padding: 0.2rem;
-  width: 5rem;
-  white-space: nowrap;
-  overflow: hidden;
+  @extend .square-colored-btn;
 }

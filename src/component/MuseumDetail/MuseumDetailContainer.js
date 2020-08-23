@@ -24,7 +24,7 @@ const MuseumDetailContainer = ({
   const { museumIDparam } = match.params;
 
   useEffect(() => {
-    museumID ? getMuseumInfo(museumID) : changeMuseumID(museumIDparam * 1);
+    (museumID && !loadingMuseumInfo) ? getMuseumInfo(museumID) : changeMuseumID(museumIDparam * 1);
   }, [ museumID ]);
 
   useEffect(() => {

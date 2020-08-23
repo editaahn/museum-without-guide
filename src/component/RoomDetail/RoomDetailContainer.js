@@ -19,13 +19,11 @@ const RoomDetailContainer = ({
   const { roomIDparam } = match.params;
 
   useEffect(() => {
-    roomID ? getArtworkList(roomID) : changeRoomID(roomIDparam * 1);
+    (roomID && !loadingArtworkList) ? getArtworkList(roomID) : changeRoomID(roomIDparam * 1);
   }, [roomID]);
 
   useEffect(() => {
-    return () => {
-      cleanRoomInfo();
-    };
+    return () => cleanRoomInfo()
   }, []);
 
   return (
