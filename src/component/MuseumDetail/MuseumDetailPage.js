@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import FloorList from './FloorList';
 import Floor from './Floor';
-import '../../style/common.scss';
-import Header from '../Common/Header.js';
+import PageHeader from '../Common/PageHeader';
+import { withRouter } from "react-router-dom";
 
 const MuseumDetailPage = ({
   museumInfo,
@@ -10,6 +10,7 @@ const MuseumDetailPage = ({
   floorInfo,
   changeFloorInfo,
   changeRoomID,
+  history
 }) => {
   const floorClickEvt = useCallback(
     (e) => {
@@ -26,16 +27,15 @@ const MuseumDetailPage = ({
     <div className="wrapper">
       {(loadingMuseumInfo || !museumInfo) && (
         <header>
-          <h1>로딩중</h1>
+          <h1>화면 로딩중</h1>
         </header>
       )}
       {!loadingMuseumInfo && museumInfo && (
-        <Header
+        <PageHeader
           title={
-            <strong>
-              {museumInfo['museum_name']}, {museumInfo.city}
-            </strong>
+            `${museumInfo['museum_name']}, ${museumInfo.city}`
           }
+          history={history}
         />
       )}
       <main>
@@ -59,4 +59,4 @@ const MuseumDetailPage = ({
   );
 };
 
-export default MuseumDetailPage;
+export default withRouter(MuseumDetailPage);

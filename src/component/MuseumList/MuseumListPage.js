@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Common/Header';
+import PageHeader from '../Common/PageHeader';
 import { Link } from 'react-router-dom';
 
 const MuseumListPage = ({
@@ -15,9 +15,9 @@ const MuseumListPage = ({
   return (
     <div className="wrapper">
       {!loadingMuseumList && wholeMuseumList && (
-        <Header title={'미술관 선택하기'} />
+        <PageHeader title={'미술관 선택하기'} />
       )}
-      <ul className="ul">
+      <ul className="ul--col">
         {!loadingMuseumList &&
           wholeMuseumList &&
           wholeMuseumList.map((museum, i) => (

@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import RoomDetailPage from './RoomDetailPage';
 import { connect } from 'react-redux';
-import { getArtworkList, changeRoomID } from '../../modules/roomDetail';
+import {
+  getArtworkList,
+  changeRoomID,
+  cleanRoomInfo,
+} from '../../modules/roomDetail';
 
 const RoomDetailContainer = ({
   roomID,
@@ -9,20 +13,31 @@ const RoomDetailContainer = ({
   getArtworkList,
   changeRoomID,
   match,
+  loadingArtworkList,
+  cleanRoomInfo,
 }) => {
   const { roomIDparam } = match.params;
 
   useEffect(() => {
     roomID ? getArtworkList(roomID) : changeRoomID(roomIDparam * 1);
-  }, [roomID, roomIDparam, changeRoomID, getArtworkList, artworkList]);
+  }, [roomID]);
 
-  return <RoomDetailPage artworkList={artworkList} roomID={roomID} getArtworkList={getArtworkList} />;
+  useEffect(() => {
+    return () => {
+      cleanRoomInfo();
+    };
+  }, []);
+
+  return (
+    <RoomDetailPage artworkList={artworkList} />
+  );
 };
 
 export default connect(
   ({ roomDetail }) => ({
     artworkList: roomDetail.artworkList,
+    loadingArtworkList: roomDetail.loading.GET_ARTWORK_LIST,
     roomID: roomDetail.roomID,
   }),
-  { getArtworkList, changeRoomID },
+  { getArtworkList, changeRoomID, cleanRoomInfo },
 )(RoomDetailContainer);

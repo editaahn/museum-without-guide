@@ -3,10 +3,11 @@ import Artwork from './Artwork';
 
 const ArtworkList = ({ artworkList }) => {
   return (
-    <ul>
+    <ul className="artwork__ul">
       {artworkList
         ? artworkList.map((artwork, i) => (
             <Artwork
+              key={i}
               index={i}
               title={artwork.title}
               artist={artwork.artist}

@@ -8,17 +8,11 @@ const GET_MUSEUM_INFO = 'museumDetail/GET_MUSEUM_INFO';
 const GET_MUSEUM_INFO_SUCCESS = 'museumDetail/GET_MUSEUM_INFO_SUCCESS';
 const GET_MUSEUM_INFO_FAILURE = 'museumDetail/GET_MUSEUM_INFO_FAILURE';
 const CHANGE_FLOOR_INFO = 'museumDetail/CHANGE_FLOOR_INFO';
+const CLEAR_MUSEUM_INFO = 'museumDetail/CLEAR_MUSEUM_INFO';
 
-
-export const changeMuseumID = createAction(
-  CHANGE_MUSEUM_ID,
-  (museum_id) => museum_id,
-);
-
-export const changeFloorInfo = createAction(
-  CHANGE_FLOOR_INFO,
-  (floor_num) => floor_num,
-);
+export const changeMuseumID = createAction(CHANGE_MUSEUM_ID, (museum_id) => museum_id);
+export const clearMuseumInfo = createAction(CLEAR_MUSEUM_INFO);
+export const changeFloorInfo = createAction(CHANGE_FLOOR_INFO, (floor_num) => floor_num);
 
 export const getMuseumInfo = museum_id => async dispatch => {
   dispatch({type: GET_MUSEUM_INFO});
@@ -79,6 +73,7 @@ const museumDetail = handleActions(
       ...state,
       museumID: action.payload,
     }),
+    [CLEAR_MUSEUM_INFO]: () => initialState,
     [CHANGE_FLOOR_INFO]: (state, { payload: floor_num }) => ({
       ...state,
       floorInfo: state.museumInfo.floors.find(floor => floor.floor_num === floor_num),

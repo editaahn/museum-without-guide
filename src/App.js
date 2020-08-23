@@ -1,11 +1,11 @@
 import React from "react";
 import { Route } from 'react-router-dom';
-import "./App.scss";
 //import MuseumDetailPage from "./pages/MuseumDetailPage.js";
 //import { Route, Switch } from "react-router-dom";
 import MuseumListContainer from "./component/MuseumList/MuseumListContainer";
 import MuseumDetailContainer from "./component/MuseumDetail/MuseumDetailContainer";
 import RoomDetailContainer from "./component/RoomDetail/RoomDetailContainer";
+import './style/common.scss';
 
 const App = () => {
   return (

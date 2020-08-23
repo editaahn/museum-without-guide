@@ -5,6 +5,7 @@ import {
   changeMuseumID,
   getMuseumInfo,
   changeFloorInfo,
+  clearMuseumInfo
 } from '../../modules/museumDetail';
 import { changeRoomID } from '../../modules/roomDetail';
 
@@ -17,14 +18,19 @@ const MuseumDetailContainer = ({
   changeFloorInfo,
   changeMuseumID,
   changeRoomID,
+  clearMuseumInfo,
   match,
 }) => {
   const { museumIDparam } = match.params;
 
   useEffect(() => {
     museumID ? getMuseumInfo(museumID) : changeMuseumID(museumIDparam * 1);
-  }, [museumID, changeMuseumID, getMuseumInfo, museumIDparam]);
+  }, [ museumID ]);
 
+  useEffect(() => {
+    return () => clearMuseumInfo()
+  }, []);
+  
   return (
     <MuseumDetailPage
       museumInfo={museumInfo}
@@ -32,6 +38,7 @@ const MuseumDetailContainer = ({
       floorInfo={floorInfo}
       changeFloorInfo={changeFloorInfo}
       changeRoomID={changeRoomID}
+      clearMuseumInfo={clearMuseumInfo}
     />
   );
 };
@@ -44,5 +51,5 @@ export default connect(
     floorInfo: museumDetail.floorInfo,
     roomID: roomDetail.roomID
   }), //리듀서를 통해 변경할 state
-  { getMuseumInfo, changeFloorInfo, changeMuseumID, changeRoomID }, // 액션생성함수
+  { getMuseumInfo, changeFloorInfo, changeMuseumID, changeRoomID, clearMuseumInfo }, // 액션생성함수
 )(MuseumDetailContainer);
