@@ -1,16 +1,15 @@
-import React from "react";
-import ArtworkList from './ArtworkList'
-import Header from '../Common/Header';
+import React from 'react';
+import ArtworkList from './ArtworkList';
+import PageHeader from '../Common/PageHeader';
+import { withRouter } from 'react-router-dom';
 
-const RoomDetailPage = ({ artworkList }) => {
+const RoomDetailPage = ({ artworkList, history }) => {
   return (
-    <div>
-      <Header title='이 방의 작품' />
-      <ArtworkList 
-        artworkList={artworkList}
-      />
+    <div className="wrapper">
+      <PageHeader title="이 방의 작품" history={history} />
+      <ArtworkList artworkList={artworkList} />
     </div>
-  )
-}
+  );
+};
 
-export default RoomDetailPage;
+export default withRouter(RoomDetailPage);

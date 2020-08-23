@@ -1,5 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: #000000;
+}
+
+a {
+  font-weight: bolder;
+  text-decoration: none;
+}
+
 .wrapper {
-  width: 50vw;
+  width: 80vw;
   height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -7,32 +18,44 @@
   align-self: flex-start;
 }
 
-li {
-  list-style: none;
-}
-
 header {
-  line-height: 4rem;
+  display: flex;
+  padding: 1rem 0;
+  justify-content: space-between;
 }
 
-h1 {
+header > button {
+  font-size: 0;
+  border: 0;
+  background: none;
+  width: 10%;
+}
+
+header > button > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+header > h1 {
+  line-height: 4rem;
   text-align: center;
   font-size: 1.5rem;
   font-weight: normal;
   white-space: nowrap;
-  margin: 1rem 0;
+  width: 80%;
 }
 
-
-main {}
-main > * {}
+header > span {
+  // flex-grow: 2;
+  width: 10%;
+}
 
 .ul {
   margin: 0 auto;
   display: flex;
 }
 
-.ul--row{
+.ul--row {
   @extend .ul;
   flex-direction: row;
   justify-content: center;
@@ -41,31 +64,77 @@ main > * {}
   line-height: 1.5rem;
 }
 
-.ul--col{
+.ul--col {
   @extend .ul;
   flex-direction: column;
-
 }
 
 .li {
+  list-style: none;
   text-align: center;
   padding: 0.5rem;
+  color: #000000;
 }
 
 .li--active {
   @extend .li;
-  font-weight:bold;
+  font-weight: bold;
 }
 
-.main__floor {
+.museum_detail__main__floor {
   padding: 1rem 0;
   display: flex;
   justify-content: center;
   height: 600px;
 }
-.main__floor__img {
+.museum_detail__main__floor__img {
 }
 
-area {
+.museum_detail__main__floor__area {
   cursor: pointer;
+}
+
+.artwork__ul {
+  @extend .ul--col;
+  width: 100%;
+  padding: 0;
+}
+.artwork__main__li {
+  @extend .li;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  height: 100px;
+}
+.artwork__main__li > img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.artwork__main__li__info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5rem;
+}
+.artwork__main__li__info__title {
+}
+.artwork__main__li__info__artist {
+  font-style: normal;
+}
+.artwork__main__li__info__recommend {
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgb(206, 0, 144);
+}
+.artwork__main__li__info__add-btn{
+  border: 0;
+  background: rgb(206, 0, 144);
+  color: #ffffff;
+  line-height: 1.2rem;
+  padding: 0.2rem;
+  width: 5rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
