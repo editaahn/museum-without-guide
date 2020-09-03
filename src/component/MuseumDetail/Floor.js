@@ -6,13 +6,13 @@ const Floor = ({ floorMapUrl, rooms, changeRoomID }) => {
     <div className="museum_detail__main__floor">
       <img
         src={floorMapUrl}
-        useMap="#floor-map"
+        // useMap="#floor-map"
         alt=""
         className="museum_detail__main__floor__img"
       />
-      <map name="floor-map">
+      <div className="museum_detail__main__floor___map">
         <RoomMap rooms={rooms} changeRoomID={changeRoomID} />
-      </map>
+      </div>
     </div>
   );
 };

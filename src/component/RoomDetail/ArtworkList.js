@@ -12,6 +12,7 @@ const ArtworkList = ({ artworkList }) => {
               title={artwork.title}
               artist={artwork.artist}
               img={artwork.img}
+              recommendation={artwork.recommendation}
             />
           ))
         : 'loading' }

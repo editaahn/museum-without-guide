@@ -93,16 +93,29 @@ header > span {
 }
 
 .museum_detail__main__floor {
-  padding: 1rem 0;
+  // margin: 1rem 0;
   display: flex;
-  justify-content: center;
-  height: 600px;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
 }
 .museum_detail__main__floor__img {
+  width: 100%;
+  height: auto;
 }
 
-.museum_detail__main__floor__area {
-  cursor: pointer;
+.museum_detail__main__floor___map {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.museum_detail__main__floor__link {
+  position: absolute;
+  display: block;
+  border: 4px solid rgb(68, 16, 190);
 }
 
 .artwork__ul {
@@ -134,11 +147,12 @@ header > span {
   font-style: normal;
 }
 .artwork__main__li__info__recommend {
-  padding: 0.5rem 0;
+  padding-bottom: 0.2rem;
   font-size: 0.8rem;
   font-weight: bold;
   color: rgb(68, 16, 190);
 }
 .artwork__main__li__info__add-btn{
   @extend .square-colored-btn;
+  margin-top: 0.5rem;
 }

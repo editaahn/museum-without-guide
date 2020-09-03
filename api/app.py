@@ -36,7 +36,7 @@ def create_app(test_config=None):  # 1)
     def get_room_list(floorId):
         rows = app.database.execute(text("""
                 SELECT 
-                    r.room_id, r.coordinate
+                    r.room_id, r.coordinate, r.room_num
                 FROM room r
                 WHERE r.floor_id = :floorId
             """), {'floorId': floorId}).fetchall()
@@ -45,7 +45,7 @@ def create_app(test_config=None):  # 1)
 
         for row in rows:
             rooms.append(
-                {'room_id': row.room_id, 'coordinate': row.coordinate})
+                {'room_id': row.room_id, 'coordinate': row.coordinate, 'room_num': row.room_num})
 
         return rooms
 
